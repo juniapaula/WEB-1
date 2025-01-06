@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('./imagens/folhas.jpg') no-repeat center center fixed; 
+    background-size: cover;
+    padding: 20px;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #e9e3e3;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#topContainer .espacoVazio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 150px;
+    border: 2px black;
+    background-color: white;
+}
+
+#bottomContainer {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+#bottomContainer img {
+    width: 100%;
+    max-width: 200px; 
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
+}
+
+#bottomContainer img:hover {
+    border: 2px solid #555;
+}
+
+.espacoVazio img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.filled {
+    background-color: #f0f0f0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+    color: #fff;          
+}
+
+footer p {
+    font-size: 14px;
+}
