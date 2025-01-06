@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Cadastro de Atletas</h1>
+    <form action="receptor.php" method="post" enctype="multipart/form-data">
+
+        <fieldset>
+            <legend><strong>Dados Pessoais</strong></legend>
+
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" required>
+        <br><br>
+
+        <label for="fem">Feminino</label>
+        <input type="radio" id="fem" name="sexo" value="F">
+        <label for="masc">Masculino</label>
+        <input type="radio" id="masc" name="sexo" value="M">
+        <br><br>
+
+        <label for="nascimento">Nacimento</label>
+        <input type="date" name="nascimento" id="nascimento" required>
+        <br><br>
+
+        <label for="idade">Idade</label>
+        <input type="number" name="idade" id="idade" min="0" oninput="validateAge(this)" required>
+        <br><br>
+
+        <label for="cpf">CPF</label>
+        <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+        <br>
+
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend><strong>Endereço</strong></legend>
+        
+            <label for="rua">Rua</label>
+            <input type="text" id="rua" name="rua" required>
+            <br><br>
+        
+            <label for="numero">Número</label>
+            <input type="number" name="numero" id="numero" min="1" required>
+            <br><br>
+        
+            <label for="bairro">Bairro</label>
+            <input type="text" id="bairro" name="bairro" required>
+            <br><br> 
+            
+            <label for="cidade">Cidade</label>
+            <input type="text" id="cidade" name="cidade" required>
+            <br><br> 
+        
+            <label for="estado">Estado</label>
+            <input type="text" id="estado" name="estado" required pattern="[A-Za-z]{2}">
+            <br><br> 
+        
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend><strong>Inscrição</strong></legend>
+
+        <label for="cor">Cor da faixa</label>
+        <input type="color" name="cor" id="cor">
+        <br><br>
+
+        <label for="categoria">Categoria até</label>
+        <input type="range" id="categoria" name="categoria" min="0" max="200" value="00" oninput="updateValue(this.value)">
+        <span id="pesoValor">00</span> kg
+
+        <script>
+            function updateValue(value) {
+              document.getElementById('pesoValor').textContent = value;
+            }
+          </script>
+        <br><br>
+
+        <label for="equipe">Equipe</label>
+        <input type="text" id="equipe" equipe="equipe">
+        <br><br>
+
+        <label for="autorização">Autorização dos pais</label>
+        <input type="file" id="autorização" name="autorização">
+        <br><br>
+
+        <label for="redeSocial">Rede social</label>
+        <input type="url" id="redeSocial" name="redeSocial" placeholder="http://www.seusite.com">
+        <br><br>
+
+        <label for="modalidade">Modalidade</label>
+        <select name="modalidade" id="modalidade">
+            <option value=" "></option>
+            <option value="gi">Somente GI</option>
+            <option value="no-gi">Somente NO-GI</option>
+            <option value="gi+no-gi">GI + NO-GI</option>
+        </select>
+        <br><br>
+
+        <legend>Possui alguma condição médica?</legend>
+        <label for="sim">SIM</label>
+        <input type="radio" id="sim" name="condição" value="S">
+        <label for="nao">NÃO</label>
+        <input type="radio" id="nao" name="condição" value="N">
+        <br><br>
+
+        <label for="comentario">Cite:</label><br>
+        <textarea name="comentario" id="comentario" cols="50" rows="10"></textarea>
+
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend><strong>Criar conta</strong></legend>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+            <br><br>
+    
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha">
+            <br><br>
+    
+            <label for="aceite">Aceito os termos</label>
+            <input type="checkbox" id="aceite" name="aceite" required>
+            <br><br>
+    
+            <br>
+            <button type="reset">Redefinir</button>
+            <button>Enviar</button>
+            <br><br>
+        </fieldset>
+
+    </form>
+</body>
+</html>
