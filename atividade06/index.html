@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbo Power</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonte.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</div>
+        <nav id="menu">
+            <a href="index.html">Início</a>
+            <a href="cadastro_cliente.html">Cadastro de Cliente</a>
+            <a href="ordem_serviço.html">Ordem de Serviço</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <h1>Turbo Power</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Sobre Nós</h2>
+            <p>Nossa oficina está comprometida em oferecer serviços de qualidade e confiança. Nossa equipe experiente e 
+            apaixonada por cuidar do seu veículo, utiliza os mais modernos equipamentos e técnicas para garantir a sua 
+            segurança e conforto. Nosso objetivo é proporcionar uma experiência única, com atendimento personalizado, 
+            transparência e agilidade em todos os serviços. Conte conosco para manter seu carro sempre em perfeitas 
+            condições!"
+            </p>
+        </section>
+        <section>
+            <h2>Serviços Ofertados</h2>
+            <ul>
+                <li>Troca de óleo: "Com produtos de alta qualidade, adaptados ao seu veículo."</li>
+                <li>Revisão completa: "Check-up de todos os sistemas do seu carro, incluindo freios, suspensão, filtros e muito mais."</li>
+                <li>Balanceamento e alinhamento: "Garantindo maior estabilidade e durabilidade dos pneus."</li>
+                <li>Diagnóstico eletrônico: "Diagnóstico completo para identificar e solucionar qualquer problema no seu veículo de forma rápida e eficiente."</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Produtos</h2>
+            <p>Trabalhamos com peças originais e de alta qualidade para veículos nacionais e importados.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Oficina Mecânica - Qualidade que você pode confiar.</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

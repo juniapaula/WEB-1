@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonte.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</div>
+        <nav id="menu">
+            <a href="index.html">Início</a>
+            <a href="cadastro_cliente.html">Cadastro de Cliente</a>
+            <a href="ordem_serviço.html">Ordem de Serviço</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <h1>Cadastro de Cliente</h1>
+    </header>
+    <main>
+        <section><form>
+            <fieldset>
+                <legend>Dados do Cliente</legend>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                <br></br>
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+                <br></br>
+                <label for="endereco">Endereço:</label>
+                <input type="text" id="endereco" name="endereco" required>
+            </fieldset>
+        </section>
+        
+        <section><fieldset>
+            <legend>Dados do Veículo</legend>
+            <label for="modelo">Modelo do Carro:</label>
+            <input type="text" id="modelo" name="modelo" required>
+            <br></br>
+            <label for="ano">Ano:</label>
+            <input type="number" id="ano" name="ano" required>
+            <br></br>
+            
+        </fieldset>
+    </section>
+    <button type="button" onclick="alert('Cadastro realizado com sucesso!')">CADASTRAR</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Oficina Mecânica</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

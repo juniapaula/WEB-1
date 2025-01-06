@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonte.css">
+</head>
+<body>
+    <header>
+        <div class="menu-icon" onclick="toggleMenu()" aria-label="Abrir menu">&#9776;</div>
+        <nav id="menu">
+            <a href="index.html">Início</a>
+            <a href="cadastro_cliente.html">Cadastro de Cliente</a>
+            <a href="ordem_serviço.html">Ordem de Serviço</a>
+            <a href="login.html">Login</a>
+        </nav>
+        <h1>Login</h1>
+    </header>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Acesse sua Conta</legend>
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="button" onclick="alert('Login realizado com sucesso!')">Entrar</button>
+            </fieldset>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Oficina Mecânica</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

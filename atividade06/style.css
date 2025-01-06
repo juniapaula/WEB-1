@@ -1,0 +1,139 @@
+/* Estilo global */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('oficina.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+/* Cabeçalho */
+header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 1em;
+    position: relative;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 1em; /* Adicionado espaçamento abaixo do título */
+}
+
+.menu-icon {
+    font-size: 2em;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1em;
+    border-radius: 8px;
+    
+}
+
+nav.show {
+    display: flex;
+}
+
+nav a {
+    text-decoration: underline; /* Adiciona a linha padrão */
+    color: #fff;
+    margin: 0.5em 0;
+    font-size: 1.2em;
+    transition: all 0.3s ease; /* Transição suave para os efeitos */
+}
+
+nav a:hover {
+    text-decoration: none; /* Remove a linha ao passar o mouse */
+    color: #f1c070; /* Muda a cor do texto para destaque */
+}
+
+/* Região principal */
+main {
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 1em;
+    border-radius: 10px;
+}
+
+section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1em;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+section h2 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Formulários */
+form {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 2em;
+    border-radius: 10px;
+    color: #fff;
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    padding: 1em;
+    border-radius: 8px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.8);
+    position: relative;
+    bottom: 0;
+    color: #fff;
+}
+
+/* Botão */
+button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    main {
+        padding: 1em;
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+    nav a {
+        font-size: 1em;
+    }
+}
+h1, h2, p, label {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
