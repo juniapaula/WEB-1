@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS atividade11;
+CREATE DATABASE atividade11;
+
+USE atividade11;
+
+DROP TABLE IF EXISTS registros;
+CREATE TABLE registros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
+SELECT * FROM registros;

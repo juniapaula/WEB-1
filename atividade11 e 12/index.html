@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro e Listagem</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Cadastro de Dados</h1>
+    <form id="form-cadastro">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Lista de Registros</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="registros"></tbody>
+    </table>
+
+    <script>
+        async function carregarRegistros() {
+            try {
+                const resposta = await fetch('processa.php');
+                const registros = await resposta.json();
+                const tabela = document.getElementById('registros');
+                tabela.innerHTML = registros.map(registro => `
+                    <tr>
+                        <td>${registro.id}</td>
+                        <td>${registro.nome}</td>
+                        <td>${registro.email}</td>
+                        <td>
+                            <button class="btn-editar" onclick="editarRegistro(${registro.id}, '${registro.nome}', '${registro.email}')">Editar</button>
+                            <button class="btn-excluir" onclick="excluirRegistro(${registro.id})">Excluir</button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (erro) {
+                console.error('Erro ao carregar registros:', erro);
+            }
+        }
+
+        async function editarRegistro(id, nome, email) {
+            const novoNome = prompt('Novo nome:', nome);
+            const novoEmail = prompt('Novo email:', email);
+            if (novoNome && novoEmail) {
+                try {
+                    const resposta = await fetch('processa.php', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id, nome: novoNome, email: novoEmail })
+                    });
+                    const resultado = await resposta.json();
+                    if (resultado.sucesso) {
+                        alert('Registro atualizado com sucesso!');
+                        carregarRegistros();
+                    } else {
+                        alert('Erro ao atualizar registro.');
+                    }
+                } catch (erro) {
+                    console.error('Erro ao editar registro:', erro);
+                }
+            }
+        }
+
+        async function excluirRegistro(id) {
+            if (confirm('Deseja realmente excluir este registro?')) {
+                try {
+                    const resposta = await fetch('processa.php', {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id })
+                    });
+                    const resultado = await resposta.json();
+                    if (resultado.sucesso) {
+                        alert('Registro excluído com sucesso!');
+                        carregarRegistros();
+                    } else {
+                        alert('Erro ao excluir registro.');
+                    }
+                } catch (erro) {
+                    console.error('Erro ao excluir registro:', erro);
+                }
+            }
+        }
+
+        document.getElementById('form-cadastro').addEventListener('submit', async function (evento) {
+            evento.preventDefault();
+            const formData = new FormData(evento.target);
+
+            try {
+                const resposta = await fetch('processa.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const resultado = await resposta.json();
+                if (resultado.sucesso) {
+                    alert('Cadastro realizado com sucesso!');
+                    carregarRegistros();
+                    evento.target.reset();
+                } else {
+                    alert('Erro ao cadastrar.');
+                }
+            } catch (erro) {
+                console.error('Erro ao enviar dados:', erro);
+            }
+        });
+
+        carregarRegistros();
+    </script>
+</body>
+
+</html>
